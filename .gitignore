@@ -1,0 +1,9 @@
+.DS_Store
+.idea/
+bot_token.py
+lib/
+pyvenv.cfg
+.gitignore
+__pycache__/
+bin/
+scum_db.txt
