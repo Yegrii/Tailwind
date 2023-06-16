@@ -133,7 +133,7 @@ async def play_radio(ctx):
     if voice_channel:
         try:
             voice_client = await voice_channel.connect()
-            url = "http://online.kissfm.ua/KissFM"  # Замените на выбранную вами ссылку из файла KissFM.m3u
+            url = "http://online.kissfm.ua/KissFM" # Kiss FM radio
             source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio(url))
             voice_client.play(source)
             await ctx.send("Launching Kiss FM radio...")
