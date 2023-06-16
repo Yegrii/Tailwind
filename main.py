@@ -119,11 +119,11 @@ async def weather(ctx, city):
         temperature = data['current']['temp_c']
         weather_desc = data['current']['condition']['text']
 
-        weather_message = f'Погода в городе {city_name}:\nТемпература: {temperature}°C\nОписание: {weather_desc}'
+        weather_message = f'Weather in town {city_name}:\nTemperature: {temperature}°C\nDescription: {weather_desc}'
         await ctx.send(weather_message)
         save_request(ctx.author.name, f'weather ({city})', weather_message)
     else:
-        await ctx.send('Не удалось получить информацию о погоде')
+        await ctx.send('City not found.')
 
 
 @bot.command()
@@ -176,15 +176,15 @@ async def volume(ctx, adjustment: str):
 @bot.command()
 async def commands(ctx):
     # Show bot commands
-    embed = discord.Embed(title="Bot Commands", description="Список доступных команд бота:", color=discord.Color.blue())
-    embed.add_field(name="$sad", value="Отправить случайную цитату", inline=False)
-    embed.add_field(name="$bitcoin", value="Получить информацию о биткоине", inline=False)
-    embed.add_field(name="$weather <city>", value="Получить информацию о погоде в указанном городе", inline=False)
-    embed.add_field(name="$coin", value="Подбросить монетку", inline=False)
-    embed.add_field(name="$dogcoin", value="Получить информацию о dogcoin", inline=False)
-    embed.add_field(name="$play_radio", value="Включить радио", inline=False)
-    embed.add_field(name="$stop_radio", value="Остановить радио", inline=False)
-    embed.add_field(name="$volume <+/->", value="Увеличить/уменьшить громкость радио", inline=False)
+    embed = discord.Embed(title="Bot Commands", description="List of all bot commands", color=0xeee657)
+    embed.add_field(name="$sad", value="Send random message", inline=False)
+    embed.add_field(name="$bitcoin", value="Information about bitcoin", inline=False)
+    embed.add_field(name="$weather <city>", value="Information about weather in city", inline=False)
+    embed.add_field(name="$coin", value="Flip the coin", inline=False)
+    embed.add_field(name="$dogcoin", value="Information about dogecoin", inline=False)
+    embed.add_field(name="$play_radio", value="Play radio", inline=False)
+    embed.add_field(name="$stop_radio", value="Stop playing radio", inline=False)
+    embed.add_field(name="$volume <+/->", value="Increase or decrease radio volume", inline=False)
 
     await ctx.send(embed=embed)
 
